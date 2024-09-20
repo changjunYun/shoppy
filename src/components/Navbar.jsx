@@ -17,10 +17,10 @@ export default function Navbar() {
         // });
     }, [])
     const handleLogin = () => {
-        login().then(setUser);
+        login();
     }
     const handleLogout = () => {
-        logout().then(setUser);
+        logout();
     }
   return (
     <header className='flex justify-between border-b border-gray-300 p-2'>
