@@ -8,10 +8,13 @@ export default function Navbar() {
     const [user, setUser] = useState();
 
     useEffect(() => {
-        onUserStateChange((user) => {
-            console.log(user);
-            setUser(user);
-        });
+        // 생략가능
+        onUserStateChange(setUser);
+
+        // onUserStateChange((user) => {
+        //     console.log(user);
+        //     setUser(user);
+        // });
     }, [])
     const handleLogin = () => {
         login().then(setUser);
