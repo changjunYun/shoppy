@@ -5,16 +5,17 @@ const AuthContext = createContext();
 
 export function AuthContextProvider({ children }) {
   const [user, setUser] = useState();
+  const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
     onUserStateChange((user) => {
-      console.log('유저정보는 ' + user.uid);
+      setLoading(false);
       setUser(user);
     });
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ user, login, logout, isLoading }}>
       {children}
     </AuthContext.Provider>
   );
